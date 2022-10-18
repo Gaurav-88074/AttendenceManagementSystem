@@ -1,7 +1,7 @@
 const http = require('http');
 const {getStudents} = require('./controllers/StudentController')
 const server = http.createServer((request,res)=>{
-    if(request.url=="/api/students"){
+    if(request.url=="/api/students" && request.method=="GET"){
         getStudents(request,res);
     }
     else{
