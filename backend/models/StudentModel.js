@@ -9,6 +9,7 @@
 // }
         
 const db = require('../data/Database');
+
 async function fetchAllStudent() {
     const res = await db.execute("select * from student")
     const raw = await res[0];

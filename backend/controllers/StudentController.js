@@ -1,5 +1,6 @@
 const Student = require('../models/StudentModel');
 
+
 async function getStudents(request,res){
     try {
         // const students = await Student.getStudentData();
