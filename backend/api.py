@@ -6,7 +6,9 @@ routes ={
         "http://localhost:5000/api/attendence",
     ],
     "POST":[
-
+        "http://localhost:5000/api/add/student",
+        "http://localhost:5000/api/teacher/student",
+        "http://localhost:5000/api/course/student",
     ],
     "PUT":[
 
