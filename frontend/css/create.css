@@ -1,0 +1,130 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* background-color: #f3f3f7; */
+}
+.header{
+    height: 55px;
+    background-color: #6366f1;
+}
+nav{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content:space-between;
+}
+.logo-name{
+    color: #ffff;
+    font-size: large;
+    font-family:sans-serif;
+    font-weight: 500;
+    margin-left: 20px;
+    opacity: 0.8;
+    transition-property: opacity;
+    transition-duration: 0.3s;
+}
+.logo-name:hover{
+    opacity: 1;
+    cursor: pointer;
+}
+.you{
+    height: 40px;
+    width: 40px;
+    border-radius: 500px;
+    /* background-color: #4a4cf5; */
+    border: 1px solid #ffffff;
+    color: #ffff;
+    font-size: large;
+    font-family:sans-serif;
+    font-weight: 500;
+    margin-right: 30px;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    transition-property: opacity;
+    /* opacity: 0.7; */
+    transition-duration: 0.3s;
+}
+.you:hover{
+    opacity: 1;
+    cursor: pointer;
+}
+main{
+    height: auto;
+    min-height: 720px;
+    width: 100%;
+    background-color: #f3f3f7;
+    /* background-color: red; */
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+.pollHeading{
+    /* width: 30%; */
+    height: 30%;
+    /* font-size: 26px; */
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #6366f1;
+    /* border: 1px solid black; */
+}
+
+.classroom-name{
+    margin: auto;
+    margin-top: 40px;
+    height: 140px;
+    width: 80vw;
+    max-width: 500px;
+    border-radius: 5px;
+    background-color: #ffff;
+    padding: 10px;
+}
+.inputQuestion{
+    margin: auto;
+    width: 80%;
+    height: 30%;
+    border: 1px solid black;
+    outline: none;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom: 1px solid #f3f7f7;
+    transition-property: border;
+    transition-duration: 0.3s;
+    font-size: 14px;
+    padding-left: 2px;
+}
+.inputQuestion:focus{
+    border-bottom-color:#6366f1;;
+}
+.button-section{
+    height: 80px;
+    width: 80vw;
+    max-width: 500px;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-items: center;
+    /* background-color: #ffff; */
+}
+.create-button{
+    height: 46%;
+    width: 100px;
+    color: #ffff;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    background-color: #5558ff;
+    opacity: 0.9;
+    font-weight: 500;
+    transition-property: opacity;
+    transition-duration: 0.3s;
+}
+.create-button:hover{
+    opacity: 1;
+    cursor: pointer;
+}
