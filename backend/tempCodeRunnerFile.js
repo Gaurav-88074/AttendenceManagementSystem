@@ -1,0 +1,2 @@
+st.method=="GET"){
+        getCourses
