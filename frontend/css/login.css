@@ -1,0 +1,97 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.header{
+    height: 55px;
+    background-color: #6366f1;
+}
+nav{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    flex-direction: row;
+    
+    justify-content:space-between;
+}
+.logo-name{
+    color: #ffff;
+    font-size: large;
+    font-family:sans-serif;
+    font-weight: 500;
+    margin-left: 20px;
+    opacity: 0.8;
+    transition-property: opacity;
+    transition-duration: 0.3s;
+}
+.logo-name:hover{
+    opacity: 1;
+    cursor: pointer;
+}
+
+.you{
+    height: 40px;
+    width: 40px;
+    border-radius: 500px;
+    /* background-color: #4a4cf5; */
+    border: 1px solid #ffffff;
+    color: #ffff;
+    font-size: large;
+    font-family:sans-serif;
+    font-weight: 500;
+    margin-right: 30px;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    transition-property: opacity;
+    opacity: 0.7;
+    transition-duration: 0.3s;
+}
+.you:hover{
+    opacity: 1;
+    cursor: pointer;
+}
+.auth-div{
+    height: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-around;
+    /* background-color: red; */
+}
+.auth-button{
+    /* margin-left: 20px; */
+    margin-right: 30px;
+    height: 54%;
+    width: 40px;
+    color: #ffff;
+    border: none;
+    /* border: 1px solid #ffff; */
+    outline: none;
+    /* border-radius: 5px; */
+    background-color: #6366f1;
+    opacity: 0.9;
+    font-weight: 500;
+    transition-property: opacity;
+    transition-duration: 0.3s;
+    float: right;
+}
+.auth-button:hover{
+    opacity: 1;
+    cursor: pointer;
+}
+.toolbar{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-items: center;
+    height: 60px;
+    /* background-color: red; */
+    background-color: #f3f3f7;
+    /* border-bottom: 2px solid #fff; */
+    
+}

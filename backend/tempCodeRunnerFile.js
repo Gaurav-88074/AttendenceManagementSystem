@@ -1,2 +1,4 @@
-st.method=="GET"){
-        getCourses
+//     res.writeHead(204, headers);
+//     res.end();
+//     return;
+//   }

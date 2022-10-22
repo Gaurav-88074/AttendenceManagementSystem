@@ -1,18 +1,28 @@
-const http = require('http');
-const {getStudents} = require('./controllers/StudentController')
-const {getCourses} = require('./controllers/CourseController')
-const server = http.createServer((request,res)=>{
-    if(request.url=="/api/students" && request.method=="GET"){
-        getStudents(request,res);
-    }
-    else if(request.url=="/api/courses" && request.method=="GET"){
-        getCourses(request,res);
-    }
-    else{
-        res.writeHead(404,{"Content-Type":'application/json'});
-        res.end(JSON.stringify({"message" : "route not found"}));
+const http = require("http");
+const { getStudents } = require("./controllers/StudentController");
+const { getCourses,addCourse } = require("./controllers/CourseController");
+
+const server = http.createServer((request, res) => {
+    if (request.url === "/api/students" && request.method === "GET") {
+        getStudents(request, res);
+    } else if (request.url === "/api/courses" && request.method === "GET") {
+        getCourses(request, res);
+    } else if (request.url === "/api/add/course" && request.method === "POST") {
+        console.log("got post request");
+        addCourse(request, res);
+    } else {
+        console.log("hit 3");
+        getStudents(request, res);
+        // res.writeHeader(404, { "Content-Type": "application/json" });
+        // res.writeHeader(404, headers);
+        // res.end(JSON.stringify({ message: "route not found" }));
     }
 });
-const PORT = process.env.PORT ||5000;
+const PORT = process.env.PORT || 5000;
 
-server.listen(PORT,()=>console.log((`server is running on port ${PORT}`)));
+server.listen(PORT, () => console.log(`server is running on port ${PORT}`));
+// if (request.method === "OPTIONS") {
+//     res.writeHead(204, headers);
+//     res.end();
+//     return;
+//   }

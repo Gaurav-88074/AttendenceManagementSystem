@@ -1,4 +1,5 @@
 const db = require('../data/Database');
+const { v4: uuidv4 } = require('uuid');
 
 async function fetchAllCourse(teacher_id) {
     // const res = await db.execute("select * from student")
@@ -10,6 +11,15 @@ async function fetchAllCourse(teacher_id) {
     const raw = await res['rows'];
     return raw;
 }
+async function addOneCourse(courseName) {
+    const id  = uuidv4();
+    const res = await db.query(
+        `insert into course values('${id}','${courseName}')`
+    )
+    const raw = await res['rows'];
+    return raw;
+}
 module.exports = {
-    fetchAllCourse
+    fetchAllCourse,
+    addOneCourse
 }
