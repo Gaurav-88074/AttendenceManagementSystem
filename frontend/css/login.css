@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    
 }
 .header{
     height: 55px;
@@ -94,4 +95,97 @@ nav{
     background-color: #f3f3f7;
     /* border-bottom: 2px solid #fff; */
     
+}
+/* ******************************* */
+
+
+
+main{
+    /* height: 1000px; */
+    padding-top: 40px;
+    /* background-color: #f3f3f7; */
+}
+
+.loginDom{
+    height: 400px;
+    width: 48%;
+    max-width: 320px;
+    margin:auto;
+    background-color: #fff;
+    box-shadow: 0px 0px 4px 4px #f3f3f3;
+}
+.inputSection{
+    height: 14%;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    background-color: #f3f7f7;
+    border-top: 7px solid white;
+    border-right: 20px solid white;
+    border-left: 20px solid white;
+    border-bottom: 7px solid white;
+    box-shadow: inset 0 1px 4px rgba(0,0,0,.1),0 0 0 transparent;
+    /* border: 1px solid black; */
+}
+.logo{
+    height: 60%;
+    width: 10%;
+    /* border: 1px solid white; */
+    
+}
+.inputTextSection{
+    
+    height: 60%;
+    width: 80%;
+    /* border: 1px solid white; */
+    border: none;
+    outline: none;
+    font-size: 15px;
+    background-color: #f3f7f7;
+    color: #0e141e;
+    
+
+}
+.other{
+    height: 16%;
+    width: 100%;
+    /* border: 1px solid black; */
+    background-color: #fff;
+    
+}
+.buttonSection{
+    height: 22%;
+    width: 100%;
+    /* border: 1px solid black; */
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    padding-right: 20px;
+    background-color: #fff;
+}
+.loginButton{
+    height: 55%;
+    width: 35%;
+    font-size: 15px;
+    /* font-weight: bold; */
+    border: 1px solid rgb(91, 91, 91);
+    color: rgb(136, 136, 136);;
+    background-color: #fff;
+    transition: box-shadow 300ms;
+}
+.loginButton:hover{
+    cursor: pointer;
+    box-shadow: 0px 3px 3px 0px rgb(116, 116, 116);
+}
+.loginButton:active{
+    box-shadow: 0px 0px 0px 0px rgb(113, 113, 113);
+}
+.connectSection{
+    height: 13%;
+    width: 100%;
+    /* border: 1px solid white;  */
+    background-color: #e1e1e1;
+    margin-bottom: 30px;
 }

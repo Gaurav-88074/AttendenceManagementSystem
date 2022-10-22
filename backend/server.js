@@ -7,6 +7,8 @@ const server = http.createServer((request, res) => {
         getStudents(request, res);
     } else if (request.url === "/api/courses" && request.method === "GET") {
         getCourses(request, res);
+    } else if (request.url === "/api/courses" && request.method === "POST") {
+        getCourses(request, res);
     } else if (request.url === "/api/add/course" && request.method === "POST") {
         console.log("got post request");
         addCourse(request, res);

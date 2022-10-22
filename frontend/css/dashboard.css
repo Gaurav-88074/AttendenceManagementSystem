@@ -55,6 +55,9 @@ nav{
     opacity: 1;
     cursor: pointer;
 }
+.youHide{
+    display: none;
+}
 .auth-div{
     height: 100%;
     display: flex;
@@ -62,6 +65,9 @@ nav{
     align-items: center;
     justify-content: space-around;
     /* background-color: red; */
+}
+.authHide{
+    display: none;
 }
 .auth-button{
     /* margin-left: 20px; */

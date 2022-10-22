@@ -11,10 +11,13 @@ async function fetchAllCourse(teacher_id) {
     const raw = await res['rows'];
     return raw;
 }
-async function addOneCourse(courseName) {
+async function addOneCourse(courseName,token) {
     const id  = uuidv4();
     const res = await db.query(
         `insert into course values('${id}','${courseName}')`
+    )
+    await db.query(
+        `insert into professor values('${token}','${id}')`
     )
     const raw = await res['rows'];
     return raw;

@@ -10,19 +10,26 @@ const headers = {
 };
 
 async function getCourses(request, res) {
-    try {
-        const courses = await Course.fetchAllCourse(
-            "b6da1cb8-0b20-48e1-9bcd-9c7c9471d429"
-        );
-        // res.statusCode=200;
-        // res.setHeader("Content-Type", "application/json")
-        // res.writeHeader(200, { "Content-Type": "application/json" });
-        res.writeHeader(200, headers);
-        res.end(JSON.stringify(courses));
-    } catch (error) {
-        console.log(error);
-        console.log("problem");
-    }
+    var body = "";
+    request.on("data", function (chunk) {
+        body += chunk;
+    });
+    request.on("end", async function () {
+        obj = JSON.parse(body);
+        try {
+            const courses = await Course.fetchAllCourse(
+                obj['token']
+            );
+            // res.statusCode=200;
+            // res.setHeader("Content-Type", "application/json")
+            // res.writeHeader(200, { "Content-Type": "application/json" });
+            res.writeHeader(200, headers);
+            res.end(JSON.stringify(courses));
+        } catch (error) {
+            console.log(error);
+            console.log("problem");
+        }
+    });
 }
 async function addCourse(request, res) {
     var body = "";
@@ -32,7 +39,7 @@ async function addCourse(request, res) {
     request.on("end", async function () {
         obj = JSON.parse(body);
         try {
-            const newcourse = await Course.addOneCourse(obj['subjectName']);
+            const newcourse = await Course.addOneCourse(obj["subjectName"],obj['token']);
             res.writeHeader(200, headers);
             res.end(JSON.stringify(newcourse));
         } catch (error) {
