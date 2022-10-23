@@ -4,6 +4,10 @@ window.onload = function() {
     })
     document.querySelector(".create-button").addEventListener("click",(e)=>{
         const inputValue = document.getElementById("subject-name").value;
+        if (inputValue.length==0) {
+            alert("Input field cannot be empty!")
+            return
+        }
         const options = {
             method: "POST",
             headers: {
@@ -16,7 +20,10 @@ window.onload = function() {
         };
         fetch("http://localhost:5000/api/add/course", options)
         .then((response) => response.json())
-        .then((response) => console.log(response))
+        .then((response) => {
+            console.log(response)
+            window.location.href = "../templates/dashboard.html";
+        })
         .catch((err) => console.error(err));
     })
 }   

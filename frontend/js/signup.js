@@ -9,8 +9,29 @@ window.onload = function(params) {
         const email = document.getElementById("emailInput").value;
         const username = document.getElementById("nameInput").value;
         const password = document.getElementById("passwordInput").value;
+        if(email.length==0 || username.length==0 ||password.length==0){
+            alert("input fields cannot be empty ");
+            return;
+        }
         // console.log(email);
         // console.log(username);
         // console.log(password);
+        const options = {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                teacherName : username,
+                email_id : email,
+                password : password
+            }),
+        };
+        
+        fetch("http://localhost:5000/api/add/teacher", options)
+            .then((response) => response.json())
+            .then((response) => console.log(response))
+            .catch((err) => console.error(err));
+        
     })
 }

@@ -7,6 +7,7 @@ window.onload = function () {
         window.location.href = "./login.html";
         document.querySelector(".you").classList.add("youHide");
         document.querySelector(".auth-div").classList.remove("authHide");
+        return;
     }
     // localStorage.setItem("token","b6da1cb8-0b20-48e1-9bcd-9c7c9471d429");
     document.getElementById("login-button").addEventListener("click", (e) => {
@@ -19,13 +20,27 @@ window.onload = function () {
         console.log("lol");
         window.location.href = "../components/create.html";
     });
-    document.querySelectorAll(".course-card").forEach((node) => {
-        node.addEventListener("click", (event) => {
-            console.log("lol");
-            window.location.href = "./students.html?" + "hashcode";
-        });
-    });
-
+    // document.querySelectorAll(".course-card").forEach((node) => {
+    //     node.addEventListener("click", (event) => {
+    //         console.log("lol");
+    //         window.location.href = "./students.html?" + "hashcode";
+    //     });
+    // });
+    //------------------------------
+    function getCourseCard(subjectName,id) {
+        return (
+            `<div class="course-card">
+                <div class="card-top">
+                       ${new String(subjectName).toString()}
+                </div>
+                <div class="card-mid"></div>
+                <div class="card-bottom">
+                    ${id}
+                </div>
+            </div>`
+        );
+    }
+    //------------------------------
     const options = {
         method: "POST",
         headers: {
@@ -38,7 +53,24 @@ window.onload = function () {
     if (token != null) {
         fetch("http://localhost:5000/api/courses", options)
             .then((response) => response.json())
-            .then((response) => console.log(response))
+            .then((response) => {
+                console.log(response)
+                let coursedom="";
+                response.forEach(({subject,id})=>{
+                    // console.log(subject);
+                    coursedom+=getCourseCard(subject,id);
+                })
+                // console.log(coursedom.length);
+                document.querySelector(".courses").innerHTML = coursedom;
+                document.querySelectorAll(".course-card").forEach((node) => {
+                    node.addEventListener("click", (event) => {
+                        // console.log("lol");
+                        const courseId = event.target.parentElement.children[2].textContent.trim();
+                        window.location.href = "./students.html"+"?"+courseId;
+                    });
+                });
+             })
             .catch((err) => console.error(err));
     }
+    
 };
