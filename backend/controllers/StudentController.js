@@ -1,4 +1,4 @@
-const Student = require('../models/StudentModel');
+const Student = require("../models/StudentModel");
 
 const headers = {
     "Access-Control-Allow-Origin": "*",
@@ -9,18 +9,65 @@ const headers = {
     "Content-Type": "application/json",
 };
 
-async function getStudents(request,res){
+async function getStudents(request, res) {
     try {
         const students = await Student.fetchAllStudent();
         // res.statusCode=200;
         // res.writeHeader(200,{"Content-Type":'application/json'});
-        res.writeHeader(200,headers);
+        res.writeHeader(200, headers);
         res.end(JSON.stringify(students));
     } catch (error) {
         console.log(error);
         console.log("problem");
     }
 }
-module.exports ={
-    getStudents
+async function addStudent(request, res) {
+    var body = "";
+    request.on("data", function (chunk) {
+        body += chunk;
+    });
+    request.on("end", async function () {
+        obj = JSON.parse(body);
+        try {
+            const students = await Student.addOneStudent(
+                obj['course_id'],
+                obj['studentRollno'],
+                obj['studentName'],
+                obj['studentEmail']
+            );
+            // res.statusCode=200;
+            // res.writeHeader(200,{"Content-Type":'application/json'});
+            res.writeHeader(200, headers);
+            res.end(JSON.stringify(students));
+        } catch (error) {
+            console.log(error);
+            console.log("problem");
+        }
+    });
 }
+async function getCourseStudents(request, res) {
+    var body = "";
+    request.on("data", function (chunk) {
+        body += chunk;
+    });
+    request.on("end", async function () {
+        obj = JSON.parse(body);
+        try {
+            const students = await Student.fetchStudents(
+                obj['course_id'],
+            );
+            // res.statusCode=200;
+            // res.writeHeader(200,{"Content-Type":'application/json'});
+            res.writeHeader(200, headers);
+            res.end(JSON.stringify(students));
+        } catch (error) {
+            console.log(error);
+            console.log("problem");
+        }
+    });
+}
+module.exports = {
+    getStudents,
+    addStudent,
+    getCourseStudents
+};

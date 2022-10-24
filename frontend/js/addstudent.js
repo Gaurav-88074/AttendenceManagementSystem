@@ -1,6 +1,10 @@
 window.onload = function (params) {
+    // ----------------------------------------------
+    const location = window.location.href.split("?");
+    const course_id = location[location.length - 1];
+    // ----------------------------------------------
     document.querySelector(".logo-name").addEventListener("click", (e) => {
-        window.location.href = "../templates/dashboard.html";
+        window.location.href = "../templates/dashboard.html" + "?" + course_id;
     });
     document.querySelector(".add-button").addEventListener("click", () => {
         const sname = document.getElementById("student-name").value;
@@ -14,21 +18,27 @@ window.onload = function (params) {
         // console.log(sname);
         // console.log(srollno);
         // console.log(semail);
+
         const options = {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                studentName  : sname,
+                studentName: sname,
                 studentRollno: srollno,
-                studentEmail : semail,
+                studentEmail: semail,
+                course_id: course_id,
             }),
         };
 
-        // fetch("http://localhost:5000/api/add/student", options)
-        //     .then((response) => response.json())
-        //     .then((response) => console.log(response))
-        //     .catch((err) => console.error(err));
+        fetch("http://localhost:5000/api/add/student", options)
+            .then((response) => response.json())
+            .then((response) => {
+                console.log(response);
+                window.location.href =
+                    "../templates/students.html" + "?" + course_id;
+            })
+            .catch((err) => console.error(err));
     });
 };

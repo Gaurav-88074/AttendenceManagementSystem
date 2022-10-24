@@ -92,7 +92,7 @@ main{
     flex-direction: row;
     align-content: flex-start;
 }
-.student-card{
+.skeleton-card{
     /* margin: auto; */
     margin: 20px;
     max-width: 500px;
@@ -100,4 +100,14 @@ main{
     width: 180px;
     border-radius: 5px;
     background-color: #ffff;
+    animation: skeleton-loading 0.8s linear infinite alternate ;
+}
+@keyframes skeleton-loading {
+    0% {
+        background-color: hsl(0, 0%, 80%);
+    }
+
+    100% {
+        background-color: hsl(0, 0%, 90%);
+    }
 }
