@@ -1,7 +1,14 @@
 const http = require("http");
-const { getStudents,addStudent,getCourseStudents } = require("./controllers/StudentController");
+const {
+    getStudents,
+    addStudent,
+    getCourseStudents,
+} = require("./controllers/StudentController");
 const { getCourses, addCourse } = require("./controllers/CourseController");
-const { addTeacher,getTeacherData } = require("./controllers/TeacherController");
+const {
+    addTeacher,
+    getTeacherData,
+} = require("./controllers/TeacherController");
 const server = http.createServer((request, res) => {
     if (request.url === "/api/students" && request.method === "POST") {
         getCourseStudents(request, res);
@@ -11,11 +18,17 @@ const server = http.createServer((request, res) => {
         getCourses(request, res);
     } else if (request.url === "/api/add/course" && request.method === "POST") {
         addCourse(request, res);
-    } else if (request.url === "/api/add/teacher" && request.method === "POST") {
+    } else if (
+        request.url === "/api/add/teacher" &&
+        request.method === "POST"
+    ) {
         addTeacher(request, res);
     } else if (request.url === "/api/teacher" && request.method === "POST") {
         getTeacherData(request, res);
-    } else if (request.url === "/api/add/student" && request.method === "POST") {
+    } else if (
+        request.url === "/api/add/student" &&
+        request.method === "POST"
+    ) {
         addStudent(request, res);
     } else {
         console.log("hit 3");

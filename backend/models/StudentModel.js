@@ -18,10 +18,13 @@ async function fetchStudents(course_id) {
 }
 async function addOneStudent(course_id, student_id, name, email_id) {
     // const res = await db.execute("select * from student")
+    
     const res = await db.query(
-        `insert into student values(${student_id},'${name}','${email_id}')`
+        `insert into student values(${student_id},'${name}','${email_id}') where not exists (select * from student where id = ${student_id})`
     );
-    await db.query(`insert into classroom values('${course_id}','${student_id}')`);
+    await db.query(
+        `insert into classroom values('${course_id}','${student_id}')`
+    );
     // const raw = await res[0];
     const raw = await res["rows"];
     return raw;
