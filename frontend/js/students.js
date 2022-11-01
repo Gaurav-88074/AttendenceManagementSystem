@@ -1,4 +1,15 @@
 window.onload = function () {
+    //-------------------------------------------------------
+    document.querySelector(".name-logo").addEventListener('mouseenter',()=>{
+        document.querySelector(".option").style.height = "100%";
+    })
+    document.querySelector(".option").addEventListener('mouseleave',()=>{
+        document.querySelector(".option").style.height = "0%";
+    })
+    document.querySelector(".you").addEventListener('mouseleave',()=>{
+        document.querySelector(".option").style.height = "0%";
+    })
+    //-------------------------------------------------------
     // ----------------------------------------------
     const location = window.location.href.split("?");
     const course_id = location[location.length - 1];
