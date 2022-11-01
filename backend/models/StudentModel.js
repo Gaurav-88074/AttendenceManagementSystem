@@ -27,7 +27,7 @@ async function addOneStudent(course_id, student_id, name, email_id) {
     );
     // const raw = await res[0];
     // const raw = await res["rows"];
-    return new Promise.all([p1,p2]);
+    return await Promise.all([p1,p2]);
 }
 module.exports = {
     fetchAllStudent,
