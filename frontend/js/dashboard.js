@@ -62,7 +62,8 @@ window.onload = function () {
         }),
     };
     if (token != null) {
-        fetch("http://localhost:5000/api/courses", options)
+        // fetch("http://localhost:5000/api/courses", options)
+        fetch("https://attendencemanagementsystem-production.up.railway.app/api/courses", options)
             .then((response) => response.json())
             .then((response) => {
                 console.log(response)

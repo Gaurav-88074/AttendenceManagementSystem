@@ -46,7 +46,8 @@ window.onload = function () {
             </div>
         `;
     }
-    fetch("http://localhost:5000/api/students", options)
+    // fetch("http://localhost:5000/api/students", options)
+    fetch("https://attendencemanagementsystem-production.up.railway.app/api/students", options)
         .then((response) => response.json())
         .then((response) => {
             let dom = "";

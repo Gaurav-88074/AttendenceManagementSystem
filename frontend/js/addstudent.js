@@ -43,7 +43,8 @@ window.onload = function (params) {
             }),
         };
 
-        fetch("http://localhost:5000/api/add/student", options)
+        // fetch("http://localhost:5000/api/add/student", options)
+        fetch("https://attendencemanagementsystem-production.up.railway.app/api/add/student", options)
             .then((response) => response.json())
             .then((response) => {
                 console.log(response);
