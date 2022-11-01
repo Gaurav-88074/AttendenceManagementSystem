@@ -11,15 +11,15 @@ window.onload = function () {
     })
     //-------------------------------------------------------
     var token = localStorage.getItem("token");
-    // if (token != null) {
-    //     document.querySelector(".auth-div").classList.add("authHide");
-    //     // document.querySelector(".you").classList.remove("youHide");
-    // } else {
-    //     window.location.href = "./login.html";
-    //     // document.querySelector(".you").classList.add("youHide");
-    //     document.querySelector(".auth-div").classList.remove("authHide");
-    //     return;
-    // }
+    if (token != null) {
+        // document.querySelector(".auth-div").classList.add("authHide");
+        // document.querySelector(".you").classList.remove("youHide");
+    } else {
+        window.location.href = "./login.html";
+        // document.querySelector(".you").classList.add("youHide");
+        // document.querySelector(".auth-div").classList.remove("authHide");
+        return;
+    }
     // localStorage.setItem("token","b6da1cb8-0b20-48e1-9bcd-9c7c9471d429");
     document.getElementById("login-button").addEventListener("click", (e) => {
         window.location.href = "./login.html";
