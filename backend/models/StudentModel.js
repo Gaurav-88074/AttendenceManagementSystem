@@ -20,7 +20,7 @@ async function addOneStudent(course_id, student_id, name, email_id) {
     // const res = await db.execute("select * from student")
     
     const p1 = await db.query(
-        `insert ignore into student values(${student_id},'${name}','${email_id}')`
+        `insert into student values(${student_id},'${name}','${email_id}') ON CONFLICT DO NOTHING`
     );
     const p2 = await db.query(
         `insert into classroom values('${course_id}','${student_id}')`
