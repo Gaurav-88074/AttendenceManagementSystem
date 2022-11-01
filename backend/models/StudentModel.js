@@ -20,7 +20,7 @@ async function addOneStudent(course_id, student_id, name, email_id) {
     // const res = await db.execute("select * from student")
     
     const p1 = await db.query(
-        `insert into student values(${student_id},'${name}','${email_id}') where not exists (select id from student where id = '${student_id}')`
+        `insert ignore into student values(${student_id},'${name}','${email_id}')`
     );
     const p2 = await db.query(
         `insert into classroom values('${course_id}','${student_id}')`
@@ -34,3 +34,5 @@ module.exports = {
     addOneStudent,
     fetchStudents,
 };
+
+// `where not exists (select id from student where id = '${student_id}')`
