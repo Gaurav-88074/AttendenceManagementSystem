@@ -1,4 +1,9 @@
-{
+{ 
+  "name":"vanila-nodejs-railway",
+  "scripts": {
+    "dev" : "nodemon backend/server.js",
+    "start": "node backend/server.js"
+  },
   "dependencies": {
     "cors": "^2.8.5",
     "mysql2": "^2.3.3",
