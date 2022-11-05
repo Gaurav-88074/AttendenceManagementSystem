@@ -161,6 +161,7 @@ main{
     font-weight: 500;
     transition-property: opacity;
     transition-duration: 0.3s;
+    
 }
 .add-button:hover{
     opacity: 1;

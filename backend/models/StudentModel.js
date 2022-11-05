@@ -29,10 +29,34 @@ async function addOneStudent(course_id, student_id, name, email_id) {
     // const raw = await res["rows"];
     return await Promise.all([p1,p2]);
 }
+async function markStudentPresent({student_id,course_id,date}) {
+    const res = await db.query(
+        `insert into attendence values(${student_id},'${course_id}','${date}')`
+    );
+    const raw = await res["rows"];
+    return raw;
+
+}
+async function fetchMarkedStudents({course_id,date}) {
+    const res = await db.query(
+        `
+        select student_id from attendence 
+        where 
+        course_id = '${course_id}' 
+        and 
+        date = '${date}'
+        `
+    );
+    const raw = await res["rows"];
+    return raw;
+
+}
 module.exports = {
     fetchAllStudent,
     addOneStudent,
     fetchStudents,
+    markStudentPresent,
+    fetchMarkedStudents
 };
 
 // `where not exists (select id from student where id = '${student_id}')`

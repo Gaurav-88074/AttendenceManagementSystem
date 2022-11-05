@@ -22,15 +22,11 @@ window.onload = function () {
         window.location.href =
             "../components/addstudent.html" + "?" + course_id;
     });
-    const options = {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-            course_id: course_id,
-        }),
-    };
+    document.getElementById("take-attendence").addEventListener("click", (e) => {
+        window.location.href =
+            "./attendence.html" + "?" + course_id;
+    });
+    
     function getStudentCard({name,id}) {
         return `
             <div class="student-card">
@@ -46,11 +42,23 @@ window.onload = function () {
             </div>
         `;
     }
+    const options = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            course_id: course_id,
+        }),
+    };
     // fetch("http://localhost:5000/api/students", options)
     fetch("https://attendencemanagementsystem-production.up.railway.app/api/students", options)
         .then((response) => response.json())
         .then((response) => {
             let dom = "";
+            response.sort((a,b)=>{
+                return a.id-b.id;
+            })
             // console.log(response);
             response.forEach(obj => {
                 // console.log(element);

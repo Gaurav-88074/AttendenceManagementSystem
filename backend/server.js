@@ -3,6 +3,8 @@ const {
     getStudents,
     addStudent,
     getCourseStudents,
+    addStudentAttendenceRecord,
+    getMarkedStudents
 } = require("./controllers/StudentController");
 const { getCourses, addCourse } = require("./controllers/CourseController");
 const {
@@ -30,6 +32,16 @@ const server = http.createServer((request, res) => {
         request.method === "POST"
     ) {
         addStudent(request, res);
+    } else if (
+        request.url === "/api/add/mark/student" &&
+        request.method === "POST"
+    ) {
+        addStudentAttendenceRecord(request, res);
+    } else if (
+        request.url === "/api/marked/student" &&
+        request.method === "POST"
+    ) {
+        getMarkedStudents(request, res);
     } else {
         console.log("hit 3");
         getStudents(request, res);
