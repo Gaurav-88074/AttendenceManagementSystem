@@ -73,7 +73,7 @@ async function addStudentAttendenceRecord(request, res) {
     });
     request.on("end", async function () {
         obj = JSON.parse(body);
-        console.log(obj);
+        // console.log(obj);
         try {
             const resp = await Student.markStudentPresent(obj);
             // res.statusCode=200;

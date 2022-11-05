@@ -74,7 +74,7 @@ window.onload = function () {
         };
         fetch("https://attendencemanagementsystem-production.up.railway.app/api/add/mark/student", optionslocal)
         .then(()=>{
-            console.log("added");
+            // console.log("added");
         })
     }
     //------------------------------------------------------------
@@ -82,6 +82,28 @@ window.onload = function () {
     function renderStudents(){
         fetch("https://attendencemanagementsystem-production.up.railway.app/api/students", options)
             .then((response) => response.json())
+            .then((response)=>{
+                return fetch("https://attendencemanagementsystem-production.up.railway.app/api/marked/student",{
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        course_id: course_id,
+                        date : new Date().toDateString(),
+                    }),
+                })
+                .then((respraw)=>respraw.json())
+                .then((resp)=>{
+                    // console.log(resp);
+                    resp.forEach((obj)=>{
+                        markedStudents.add(obj.student_id);
+                    })
+                    return response;
+                })
+                // return response;
+                
+            })
             .then((response) => {
                 let dom = "";
                 response.sort((a, b) => {
