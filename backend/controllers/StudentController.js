@@ -93,7 +93,7 @@ async function getMarkedStudents(request, res) {
     });
     request.on("end", async function () {
         obj = JSON.parse(body);
-        console.log(obj);
+        // console.log(obj);
         try {
             const resp = await Student.fetchMarkedStudents(obj);
             // res.statusCode=200;
