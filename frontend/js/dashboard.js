@@ -31,6 +31,10 @@ window.onload = function () {
         console.log("lol");
         window.location.href = "../components/create.html";
     });
+    document.getElementById("logout-button").addEventListener("click",(e)=>{
+        localStorage.removeItem("token");
+        window.location.replace("./login.html");
+    })
     // document.querySelectorAll(".course-card").forEach((node) => {
     //     node.addEventListener("click", (event) => {
     //         console.log("lol");

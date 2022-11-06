@@ -1,4 +1,11 @@
 window.onload = function (params) {
+    //==========================================
+    var token = localStorage.getItem("token");
+    if (token === null) {
+        window.location.href = "../templates/login.html";
+        return;
+    }
+    //==========================================
     //-------------------------------------------------------
     document.querySelector(".name-logo").addEventListener('mouseenter',()=>{
         document.querySelector(".option").style.height = "100%";

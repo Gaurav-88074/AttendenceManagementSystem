@@ -1,4 +1,11 @@
 window.onload = function () {
+    //===============================================
+    var token = localStorage.getItem("token");
+    if (token === null) {
+        window.location.href = "./login.html";
+        return;
+    }
+    //===============================================
     //------------------------------------
     const markedStudents = new Set();
     // markedStudents.add('88052');

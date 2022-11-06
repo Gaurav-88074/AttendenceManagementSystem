@@ -13,6 +13,13 @@ window.onload = function () {
         document.querySelector(".option").style.height = "0%";
     })
     //-------------------------------------------------------
+    //==================================================================
+    var token = localStorage.getItem("token");
+    if (token === null) {
+        window.location.href = "./login.html";
+        return;
+    }
+    //==================================================================
     // ----------------------------------------------
     const location = window.location.href.split("?");
     const course_id = location[location.length - 1];
