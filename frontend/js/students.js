@@ -1,5 +1,7 @@
 window.onload = function () {
     //-------------------------------------------------------
+    const presentMap = new Map();
+    //-------------------------------------------------------
     document.querySelector(".name-logo").addEventListener('mouseenter',()=>{
         document.querySelector(".option").style.height = "100%";
     })

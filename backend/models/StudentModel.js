@@ -51,12 +51,25 @@ async function fetchMarkedStudents({course_id,date}) {
     return raw;
 
 }
+async function fetchAttendenceRecords({course_id}) {
+    const res = await db.query(
+        `
+        select * from attendence 
+        where 
+        course_id = '${course_id}' 
+        `
+    );
+    const raw = await res["rows"];
+    return raw;
+
+}
 module.exports = {
     fetchAllStudent,
     addOneStudent,
     fetchStudents,
     markStudentPresent,
-    fetchMarkedStudents
+    fetchMarkedStudents,
+    fetchAttendenceRecords
 };
 
 // `where not exists (select id from student where id = '${student_id}')`

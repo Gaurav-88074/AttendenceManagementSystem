@@ -106,10 +106,31 @@ async function getMarkedStudents(request, res) {
         }
     });
 }
+async function getAttendenceRecords(request, res) {
+    var body = "";
+    request.on("data", function (chunk) {
+        body += chunk;
+    });
+    request.on("end", async function () {
+        obj = JSON.parse(body);
+        // console.log(obj);
+        try {
+            const resp = await Student.fetchAttendenceRecords(obj);
+            // res.statusCode=200;
+            // res.writeHeader(200,{"Content-Type":'application/json'});
+            res.writeHeader(200, headers);
+            res.end(JSON.stringify(resp));
+        } catch (error) {
+            console.log(error);
+            console.log("problem in getAttendenceRecords");
+        }
+    });
+}
 module.exports = {
     getStudents,
     addStudent,
     getCourseStudents,
     addStudentAttendenceRecord,
-    getMarkedStudents
+    getMarkedStudents,
+    getAttendenceRecords
 };

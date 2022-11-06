@@ -4,7 +4,8 @@ const {
     addStudent,
     getCourseStudents,
     addStudentAttendenceRecord,
-    getMarkedStudents
+    getMarkedStudents,
+    getAttendenceRecords
 } = require("./controllers/StudentController");
 const { getCourses, addCourse } = require("./controllers/CourseController");
 const {
@@ -42,6 +43,11 @@ const server = http.createServer((request, res) => {
         request.method === "POST"
     ) {
         getMarkedStudents(request, res);
+    } else if (
+        request.url === "/api/attendence/record/student" &&
+        request.method === "POST"
+    ) {
+        getAttendenceRecords(request,res);
     } else {
         console.log("hit 3");
         getStudents(request, res);
