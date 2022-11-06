@@ -1,14 +1,15 @@
 window.onload = function () {
     //-------------------------------------------------------
     const presentMap = new Map();
+    const distinctDates = new Set();
     //-------------------------------------------------------
-    document.querySelector(".name-logo").addEventListener('mouseenter',()=>{
+    document.querySelector(".name-logo").addEventListener('mouseenter', () => {
         document.querySelector(".option").style.height = "100%";
     })
-    document.querySelector(".option").addEventListener('mouseleave',()=>{
+    document.querySelector(".option").addEventListener('mouseleave', () => {
         document.querySelector(".option").style.height = "0%";
     })
-    document.querySelector(".you").addEventListener('mouseleave',()=>{
+    document.querySelector(".you").addEventListener('mouseleave', () => {
         document.querySelector(".option").style.height = "0%";
     })
     //-------------------------------------------------------
@@ -28,8 +29,12 @@ window.onload = function () {
         window.location.href =
             "./attendence.html" + "?" + course_id;
     });
-    
-    function getStudentCard({name,id}) {
+
+    function getStudentCard({ name, id }) {
+        const attendenceCount = presentMap.get(id)==undefined ? 0 : presentMap.get(id);
+        const totalDays = distinctDates.size;
+        // console.log(attendenceCount,totalDays);
+        const atCardValue = isNaN(attendenceCount/totalDays) ? 0 :(attendenceCount/totalDays)*100
         return `
             <div class="student-card">
                 <div class="s-name">
@@ -39,7 +44,7 @@ window.onload = function () {
                     ${id}
                 </div>
                 <div class="s-rollno">
-                    Attendence : 80%
+                    Attendence : ${atCardValue}%
                 </div>
             </div>
         `;
@@ -54,19 +59,50 @@ window.onload = function () {
         }),
     };
     // fetch("http://localhost:5000/api/students", options)
-    fetch("https://attendencemanagementsystem-production.up.railway.app/api/students", options)
+    const api_link = "https://attendencemanagementsystem-production.up.railway.app/api/students";
+    fetch(api_link, options)
         .then((response) => response.json())
         .then((response) => {
+            const attendenceApiLink = "https://attendencemanagementsystem-production.up.railway.app/api/attendence/record/student";
+            return fetch(attendenceApiLink, options)
+                .then((resp) => resp.json())
+                .then((resp) => {
+                    // console.log(resp);
+                    resp.forEach((obj)=>{
+                        if(presentMap.has(obj.student_id)){
+                            presentMap.set(
+                                obj.student_id,
+                                presentMap.get(obj.student_id)+1
+                            );
+                        }
+                        else{
+                            presentMap.set(
+                                obj.student_id,
+                                1
+                            );
+                        }
+                        distinctDates.add(obj.date);
+                    })
+                    // console.log(presentMap,distinctDates);
+                    return response;
+                })
+                .catch((err) => console.error(err));
+            
+        })
+        .then((response) => {
             let dom = "";
-            response.sort((a,b)=>{
-                return a.id-b.id;
+            response.sort((a, b) => {
+                return a.id - b.id;
             })
             // console.log(response);
             response.forEach(obj => {
                 // console.log(element);
-                dom+=getStudentCard(obj);
+
+                dom += getStudentCard(obj);
             });
             document.querySelector(".student-group").innerHTML = dom;
         })
         .catch((err) => console.error(err));
+
+
 };
