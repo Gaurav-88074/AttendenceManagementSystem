@@ -51,7 +51,7 @@ window.onload = function () {
                     ${id}
                 </div>
                 <div class="s-rollno">
-                    Attendence : ${atCardValue.toFixed(2)}%
+                    Attendence : ${atCardValue.toFixed(0)}%
                 </div>
             </div>
         `;
