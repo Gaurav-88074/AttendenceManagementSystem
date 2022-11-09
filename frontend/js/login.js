@@ -40,7 +40,9 @@ window.onload = function (params) {
                 else{
                     console.log(response);
                     localStorage.setItem("token",response.id);
-                    window.location.href = "./dashboard.html";
+                    // window.location.href = "./dashboard.html";
+                    window.location.replace("./dashboard.html");
+                    
                 }
             })
             .catch((err) => console.error(err));

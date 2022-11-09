@@ -139,6 +139,7 @@ main{
     width: 180px;
     border-radius: 10px;
     background-color: #ffff;
+    /* box-shadow: 0 5px 10px 0 rgb(0 0 0 / 8%); */
 }
 .s-name{
     color: #5558ff;

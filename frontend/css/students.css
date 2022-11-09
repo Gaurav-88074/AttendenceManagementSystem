@@ -118,6 +118,7 @@ main{
     font-weight: 500;
     transition-property: opacity;
     transition-duration: 0.3s;
+    box-shadow: 0 5px 15px 0 rgb(0 0 0 / 8%);
 }
 .create-button:hover{
     opacity: 1;
@@ -138,7 +139,7 @@ main{
     width: 180px;
     border-radius: 10px;
     background-color: #ffff;
-    /* box-shadow: 0 2px 5px 0 rgb(0 0 0 / 8%); */
+    /* box-shadow: 0 5px 10px 0 rgb(0 0 0 / 8%); */
 }
 .s-name{
     color: #5558ff;
