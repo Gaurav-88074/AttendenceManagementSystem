@@ -79,10 +79,10 @@ window.onload = function () {
                 date : new Date().toDateString(),
             }),
         };
-        fetch("https://attendencemanagementsystem-production.up.railway.app/api/add/mark/student", optionslocal)
-        .then(()=>{
+        return fetch("https://attendencemanagementsystem-production.up.railway.app/api/add/mark/student", optionslocal)
+        // .then(()=>{
             // console.log("added");
-        })
+        // })
     }
     //------------------------------------------------------------
     // fetch("http://localhost:5000/api/students", options)
@@ -132,13 +132,17 @@ window.onload = function () {
             .then(() => {
                 // console.log("done");
                 document.querySelectorAll(".mark-button").forEach((element) => {
-                    element.addEventListener("click", (e) => {
+                    element.addEventListener("click",async (e) => {
                         //string id
                         const id = e.target.parentNode.children[1].textContent.trim();
+                        e.target.textContent = "";
+                        e.target.classList.add("loading");
                         markedStudents.add(id);
-                        markPresent(id);
-
-                        renderStudents();
+                        const rp = await markPresent(id);
+                        if(rp.ok){
+                            // console.log("got response",rp);                            
+                            renderStudents();
+                        }
                     })
                 })
 
