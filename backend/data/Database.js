@@ -18,7 +18,7 @@ const pool = new Pool({
     user: 'postgres',
     host: 'containers-us-west-95.railway.app',
     database: 'railway',
-    password: '8cHHvlOOQ0ODphmfCDDH',
+    password: 'Xpe73KFng5grmyP8xhcs',
     port: 5821,
   })
 module.exports = pool
