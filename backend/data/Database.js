@@ -16,9 +16,9 @@ const Pool = require('pg').Pool
 // this is our new postgres database connection
 const pool = new Pool({
     user: 'postgres',
-    host: 'containers-us-west-95.railway.app',
+    host: 'viaduct.proxy.rlwy.net',
     database: 'railway',
-    password: 'Xpe73KFng5grmyP8xhcs',
-    port: 5821,
+    password: 'LbuFMpoZQWKHldxthlRGCVpMBZEVGiaS',
+    port:46019,
   })
 module.exports = pool
