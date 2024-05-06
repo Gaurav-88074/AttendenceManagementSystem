@@ -29,7 +29,7 @@ window.onload = function (params) {
         };
 
         // fetch("http://localhost:5000/api/add/teacher", options)
-        fetch("https://attendencemanagementsystem-production.up.railway.app/add/teacher", options)
+        fetch("https://attendencemanagementsystem-production-2182.up.railway.app/add/teacher", options)
             .then((response) => response.json())
             .then((response) => { 
                 console.log(response);
