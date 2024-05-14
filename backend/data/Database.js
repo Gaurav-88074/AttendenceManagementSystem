@@ -18,7 +18,7 @@ const pool = new Pool({
     user: 'postgres',
     host: 'viaduct.proxy.rlwy.net',
     database: 'railway',
-    password: 'LbuFMpoZQWKHldxthlRGCVpMBZEVGiaS',
-    port:46019,
+    password: 'BQgqSOrfXrYJBhqEVvKpUlxxIIMvpsWB',
+    port:39877,
   })
 module.exports = pool
