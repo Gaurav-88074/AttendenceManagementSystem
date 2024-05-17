@@ -1,7 +1,7 @@
 {
     "name": "vanila-nodejs-railway",
     "scripts": {
-        "start": "backend/server.js"
+        "start": "node backend/server.js"
     },
     "devDependencies": {
         "dotenv": "^16.4.1",
