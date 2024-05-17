@@ -30,7 +30,7 @@ window.onload = function() {
             })
         };
         // fetch("http://localhost:5000/api/add/course", options)
-        fetch("http://localhost:5000/api/add/course", options)
+        fetch("https://attendencemanagementsystem-production-2182.up.railway.app/api/add/course", options)
         .then((response) => response.json())
         .then((response) => {
             console.log(response)
