@@ -6,19 +6,19 @@ const Pool = require('pg').Pool
 
 //this was our old mysql database connection
 // const pool = mysql.createPool({
-//     host : 'containers-us-west-91.railway.app',
+//     host : 'localhost',
 //     user :'root',
-//     database :'railway',
-//     password : 'KCoZHCYtMi8WeBXVSsYX',
-//     port :5857
+//     database :'attendencemgmt',
+//     password : 'root',
+//     // port :3306
 // })
-
+// module.exports = pool.promise();
 // this is our new postgres database connection
 const pool = new Pool({
     user: 'postgres',
     host: 'viaduct.proxy.rlwy.net',
     database: 'railway',
-    password: 'BQgqSOrfXrYJBhqEVvKpUlxxIIMvpsWB',
-    port:39877,
+    password: 'OTunGJhREwxEIDCvsxTzUFzEwaFIkYIJ',
+    port:27537,
   })
-module.exports = pool
+module.exports = pool;

@@ -79,7 +79,7 @@ window.onload = function () {
                 date : new Date().toDateString(),
             }),
         };
-        return fetch("https://attendencemanagementsystem-production-2182.up.railway.app/api/add/mark/student", optionslocal)
+        return fetch("http://localhost:5000/api/add/mark/student", optionslocal)
         // .then(()=>{
             // console.log("added");
         // })
@@ -87,10 +87,10 @@ window.onload = function () {
     //------------------------------------------------------------
     // fetch("http://localhost:5000/api/students", options)
     function renderStudents(){
-        fetch("https://attendencemanagementsystem-production-2182.up.railway.app/api/students", options)
+        fetch("http://localhost:5000/api/students", options)
             .then((response) => response.json())
             .then((response)=>{
-                return fetch("https://attendencemanagementsystem-production-2182.up.railway.app/api/marked/student",{
+                return fetch("http://localhost:5000/api/marked/student",{
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",

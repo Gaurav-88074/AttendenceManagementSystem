@@ -66,11 +66,11 @@ window.onload = function () {
         }),
     };
     // fetch("http://localhost:5000/api/students", options)
-    const api_link = "https://attendencemanagementsystem-production-2182.up.railway.app/api/students";
+    const api_link = "http://localhost:5000/api/students";
     fetch(api_link, options)
         .then((response) => response.json())
         .then((response) => {
-            const attendenceApiLink = "https://attendencemanagementsystem-production-2182.up.railway.app/api/attendence/record/student";
+            const attendenceApiLink = "http://localhost:5000/api/attendence/record/student";
             return fetch(attendenceApiLink, options)
                 .then((resp) => resp.json())
                 .then((resp) => {

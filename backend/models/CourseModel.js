@@ -7,8 +7,9 @@ async function fetchAllCourse(teacher_id) {
         `select id,subject from course where id in (select course_id from professor where teacher_id = '${teacher_id}')`
     )
     // const raw = await res[0];
+
     
-    const raw = await res['rows'];
+    const raw = await res["rows"];
     return raw;
 }
 async function addOneCourse(courseName,token) {
@@ -19,7 +20,8 @@ async function addOneCourse(courseName,token) {
     await db.query(
         `insert into professor values('${token}','${id}')`
     )
-    const raw = await res['rows'];
+    // const raw = await res[0];
+    const raw = await res["rows"];
     return raw;
 }
 module.exports = {
